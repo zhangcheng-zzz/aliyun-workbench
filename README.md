@@ -31,13 +31,13 @@ dsh-yunxiao.data.json
 
 ## 安装与更新
 
-以下命令均在插件仓库根目录（即包含 `d_yunxiao` 目录的那一层）执行，命令中只使用仓库相对路径。
+以下命令均在插件仓库根目录（即本仓库根目录）执行。
 
 首次安装或改动后重新安装：
 
 ```powershell
 # 从仓库目录安装（首次安装、或换用另一份源码目录时执行）
-dsh plugin --profile web add -w ./d_yunxiao
+dsh plugin --profile web add -w .
 
 # 校验组合配置中出现 dsh-yunxiao
 dsh --profile web --dump-config
@@ -102,10 +102,10 @@ dsh plugin --profile web remove -w dsh-yunxiao
 在插件仓库根目录运行：
 
 ```powershell
-node --check .\d_yunxiao\dist\index.js
-node --check .\d_yunxiao\dist\client.js
-npm test --prefix .\d_yunxiao
-npm pack .\d_yunxiao --dry-run
+node --check .\dist\index.js
+node --check .\dist\client.js
+npm test
+npm pack --dry-run
 ```
 
 实现遵循 Harness 的可安装组合包结构：`dsh.bundle.patch` 挂载 Host 插件，`dsh.client` 在 Web 表面即时加载无框架 Client。参考：[DeepSeek Harness 插件基础](https://deepseek-harness.github.io/deepseek-harness/develop/basic/)。
